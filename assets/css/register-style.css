@@ -21,12 +21,9 @@
 
 .form-box {
     border-radius: 20px;
-    width: 90%;
-    max-width: 450px;
+    width: auto;
+    max-width: auto;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
     background: rgba(255, 255, 255, 0.15); /* Adjust the alpha value (0 to 1) for transparency */
     padding: 50px 60px 70px;
     text-align: center;
@@ -60,6 +57,8 @@
    border-radius: 25px;
    display: flex;
    align-items: center;
+
+   height: 40px;
 } 
 input{
     border: 0;
@@ -77,9 +76,12 @@ input{
     color: #999;
  }
 .form-box input[type="text"]:hover, 
+.form-box input[type="email"]:hover,
 .form-box input[type="password"]:hover{
     background: #e4d9d9;
     transition: .5s;
+
+    height: 40px;
 }
 
 form p{
@@ -129,10 +131,74 @@ form p a:hover {
 }
 
 .input-group{
-    height: 280px;
-}
-
-
-.input-group2{
     height: auto;
 }
+
+/* Reset default styles for the select element */
+.dropdown-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+  
+  /* Style the container */
+  .dropdown-field {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the label */
+  .dropdown-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f5a607;
+    text-shadow: 0 0 5px #ff0000;
+  }
+  
+  /* Style the select dropdown */
+  .dropdown-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1;
+    border-color: #f5a607;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    background-color: #eaeaea34;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    text-align: center;
+    text-shadow: 0 0 5px #f0e7e7;
+  }
+  
+  /* Style the select dropdown on hover and focus */
+  .dropdown-field select:hover{
+    border-color: #ff0000;
+  }
+  
+  /* Style the options within the dropdown */
+  .dropdown-field select option {
+    border-radius: 20px;
+  }
+  
+  /* Style the select arrow */
+  .dropdown-field select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Style the select arrow on hover and focus */
+  .dropdown-field select:hover::after,
+  .dropdown-field select:focus::after {
+    color: #db0c0c;
+  }
+  

@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User Login</title>
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="icon" href="assets/icons/title_icon.png" sizes="320x320" type="image/png">
         <script src="https://kit.fontawesome.com/2ea1850a25.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -22,7 +23,7 @@
                       </div>  
                       <p>Reset password <a href="#">Click Here!</a></p>
                       <div class="btn-field">
-                        <button type="button" class="btn">Register</button>
+                        <button type="button" class="btn" id="registerBtn">Register</button>
                         <button type="button" class="btn">Login</button>
                       </div>
                       <p>Login as <a href="admin_login.html">ADMIN</a></p>
@@ -31,6 +32,12 @@
                 </form>
             </div>
         </div>
+
+        <script>
+          document.getElementById('registerBtn').addEventListener('click', function() {
+            window.location.href = 'register.html';
+          });
+        </script>
 
     </body>      
 </html>
