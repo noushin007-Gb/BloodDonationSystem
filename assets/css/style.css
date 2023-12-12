@@ -33,6 +33,29 @@
     border: 2px solid #ff0000; /* Red border */
 }
 
+/* @keyframes borderAnimation {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.form-box {
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 50px 60px 70px;
+    text-align: center;
+    border: 2px solid transparent;
+    animation: borderAnimation 6s linear infinite;
+} */
 
 .form-box h1{
     font-size: 30px;
@@ -135,4 +158,13 @@ form p a:hover {
 
 .input-group2{
     height: auto;
+}
+
+.help-block {
+    color: #f5a607;
+    text-shadow: 0 0 5px #ff0000; /* Set the text color to red or your desired color */
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-top: 10px; /* Adjust the margin as needed */
+    margin-bottom: 1px;
+    display: block; /* Ensure the span is displayed as a block element */
 }
