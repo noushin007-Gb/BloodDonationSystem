@@ -2,10 +2,13 @@
 // Initialize the session
 session_start();
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: welcome.php");
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
     exit;
 }
+require "connection.php";
+$sql = "SELECT * FROM registered_user_info WHERE User_ID =($_SESSION[User_ID])";
+$get_data = mysqli_query($link, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +38,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                 <div class="text logo-text">
                     <span class="name">WELCOME</span>
-                    <span class="profession">ID : <?php echo htmlspecialchars($_SESSION["User_ID"]); ?></span>
+                    <span class="profession">ID :
+                        <?php echo htmlspecialchars($_SESSION["User_ID"]); ?>
+                    </span>
                 </div>
             </div>
             <i class='bx bxs-droplet iconDrop'></i>
@@ -45,7 +50,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="see_user_own_info.php">
+                        <a href="#">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">See own info.</span>
                         </a>
@@ -130,43 +135,62 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <nav class="navbar">
                 <div class="navbar_content">
                     <h1>Dashboard</h1>
-                    <p>USERNAME : <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></p>
+                    <p>USERNAME : <b>
+                            <?php echo htmlspecialchars($_SESSION["username"]); ?>
+                        </b></p>
                     <i class='bx bx-bell'></i>
                     <img src="assets/icons/title_icon.png" alt="" class="profile" />
                 </div>
             </nav>
-            <div class="donorSection">
-                <h2>Find Blood Group Related Donors instead</h2>
-                <p>Be a donor and save lives.</p>
-                <div class="middle-content">
-                        <a href="">
-                            <span class="">AB+(AB POSITIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">AB-(AB NEGATIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">A+(A POSITIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">A-(A NEGATIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">B+(B POSITIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">B-(B NEGATIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">O+(O POSITIVE)</span>
-                        </a>
-                        <a href="">
-                            <span class="">O-(O NEGATIVE)</span>
-                        </a>  
+            <div class="userInfo">
+                <div class="container">
+                    <h2>See User information</h2>
+
+                    <div class="tableInfo">
+                    <table align="center" border="1px" style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
+                            <tr>
+                                <th colspan="11">See
+                                    <?php echo htmlspecialchars($_SESSION["username"]); ?>'s Info
+                                    </h>
+                                </th>
+                            </tr>
+                            <t>
+                                <th> ID </th>
+                                <th> Name</th>
+                                <th> Blood Type</th>
+                                <th> Age</th>
+                                <th> Location</th>
+                                <th> Phone</th>
+                                <th> E-mail</th>
+                                <th> Last Donation</th>
+                                <th> UserType</th>
+                                <th> Preferred Date</th>
+                                <th> Health Problems</th>
+                            </t>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($get_data)) {
+                                echo '<tr>
+                                        <td> ' . $row['User_ID'] . '</td>
+                                        <td> ' . $row['Name'] . '</td>
+                                        <td> ' . $row['Blood_Type'] . '</td>
+                                        <td> ' . $row['Age'] . '</td>
+                                        <td> ' . $row['Location'] . '</td>
+                                        <td> ' . $row['Phone'] . '</td>
+                                        <td> ' . $row['E_mail'] . '</td>
+                                        <td> ' . $row['Last_Donation'] . '</td>
+                                        <td> ' . $row['UserType'] . '</td>
+                                        <td> ' . $row['Preferred_Date'] . '</td>
+                                        <td> ' . $row['Health_Problem'] . '</td>
+                                        </tr>';
+                            }
+                            ?>
+                        </table>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
+        </div>
     </section>
 
     <script src="assets/js/script.js"></script>

@@ -77,16 +77,16 @@ body.dark {
 .navbar_content {
     background-color: #FFF;
     padding: 10px;
-    padding-left: 10px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     margin-top: 15px;
-    margin-right: 30px;
+    margin-left: 240px;
     column-gap: 25px;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
+    right: 15px;
+
 }
 
 .navbar_content i {
@@ -104,13 +104,15 @@ body.dark {
     color: #ff0000;
 }
 
-.dashText b {
-    top: auto;
-    left: auto;
+.navbar_content h1 {
+    position: fixed;
     margin-right: 1050px;
+    left: 270px;
     font-size: 30px;
     color: #ff0000;
 }
+
+
 
 /* ===== Sidebar ===== */
 .sidebar {
@@ -234,25 +236,6 @@ body.dark .navbar_content {
     margin-top: 40px;
 }
 
-.sidebar li.search-box {
-    border-radius: 6px;
-    background-color: var(--primary-color-light);
-    cursor: pointer;
-    transition: var(--tran-05);
-}
-
-.sidebar li.search-box input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    background-color: var(--primary-color-light);
-    color: var(--text-color);
-    border-radius: 6px;
-    font-size: 17px;
-    font-weight: 500;
-    transition: var(--tran-05);
-}
 
 .sidebar li a {
     list-style: none;
@@ -385,4 +368,136 @@ body.dark .switch::before {
 
 body.dark .home .text {
     color: var(--text-color);
+}
+
+.donorSection {
+    background-color: var(--primary-color-light);
+    padding-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+
+    margin-top: 100px;
+    position: relative;
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+}
+
+
+
+@media (max-width: 768px) {
+    .donorSection {
+        transform: scale(0.8);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1920px) {
+    .donorSection {
+        transform: scale(0.9);
+    }
+}
+
+
+
+.donorSection h2 {
+
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.donorSection p {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 1px 60px;
+}
+
+.middle-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.middle-content a {
+    color: #ff0000;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 40px;
+    flex: 1;
+    text-align: center;
+    margin: 20px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+/* table style start from here */
+.userInfo {
+    background-color: var(--primary-color-light);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 100px;
+
+    position: relative;
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+    align-items: auto;
+}
+
+/* Default styling for max-width up to 1366px */
+
+/* Adjust max-width for windows size of browser is 1366px or less */
+@media only screen and (max-width: 1366px) {
+    .userInfo {
+        max-width: 1700px;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .userInfo {
+        max-width: 1280px;
+    }
+}
+
+.tableInfo {
+    position: relative;
+    margin-top: 10px;
+    /* Adjust the margin value as needed */
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 1px;
+}
+.tableInfo table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddcaca;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ddcaca;
+    background-color: var(--primary-color-light);
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 1.4;
+    position: relative;
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+}
+
+.tableInfo::-webkit-scrollbar {
+    width: 10px;
+    /* Adjust the width of the scrollbar */
+    color: #fa0000;
+}
+
+.tableInfo::-webkit-scrollbar-thumb {
+    background-color: #474646;
+    /* Adjust the color of the scrollbar thumb */
 }
