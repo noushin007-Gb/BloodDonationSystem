@@ -3,11 +3,11 @@
 session_start();
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: index.php");
+    header("location: admin_login.php");
     exit;
 }
 require "connection.php";
-$sql = "SELECT * FROM registered_user_info WHERE User_ID =($_SESSION[User_ID])";
+$sql = "SELECT * FROM admin_own_info WHERE Admin_ID =($_SESSION[Admin_ID])";
 $get_data = mysqli_query($link, $sql);
 ?>
 
@@ -25,22 +25,24 @@ $get_data = mysqli_query($link, $sql);
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>See own info.</title>
+    <title>Dashboard Sidebar Menu</title>
 </head>
 
 <body>
     <nav class="sidebar">
         <header>
             <div class="image-text">
-                <a href="welcome.php">
-                <span class="image">
-                    <img src="assets/icons/title_icon.png" alt="">
-                </span>
+                <a href="welcome_admin.php">
+                    <span class="image">
+                        <img src="assets/icons/title_icon.png" alt="">
+                    </span>
                 </a>
+
                 <div class="text logo-text">
-                    <span class="name">WELCOME</span>
+                    <!-- <span class="name">WELCOME</span> -->
+                    <span class="name">WELCOME ADMIN</span>
                     <span class="profession">ID :
-                        <?php echo htmlspecialchars($_SESSION["User_ID"]); ?>
+                        <?php echo htmlspecialchars($_SESSION["Admin_ID"]); ?>
                     </span>
                 </div>
             </div>
@@ -51,44 +53,44 @@ $get_data = mysqli_query($link, $sql);
             <div class="menu">
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="see_admin_information.php">
                             <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">See own info.</span>
+                            <span class="text nav-text">Admin Info.</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="edit_user_info.php">
-                            <i class='bx bxs-edit-alt icon'></i>
-                            <span class="text nav-text">Edit your info.</span>
+                        <a href="public_info_from_admin_home.php">
+                            <i class='bx bxs-user-pin icon'></i>
+                            <span class="text nav-text">Public Info.</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="become_a_donor.php">
-                            <i class='bx bxs-donate-blood icon'></i>
-                            <span class="text nav-text">Be a DONOR.</span>
+                    <a href="bloodbank_info_from_admin_home.php">
+                    <i class='bx bxs-bank icon'></i>
+                            <span class="text nav-text">BloodBanks Info.</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blood_request_user.php">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Blood Requests.</span>
+                        <a href="bloodbank_info_verification_from_admin.php">
+                            <i class='bx bx-check-double icon'></i>
+                            <span class="text nav-text">VERIFICATION</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-link">
+                        <a href="user_pass_reset_request.php">
+                            <i class='bx bx-reset icon'></i>
+                            <span class="text nav-text">User Pass Recovery</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="send_request.php">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">Send Blood Req.</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="delete_blood_request_user.php">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Delete your Req.</span>
+                        <a href="blood_bank_pass_reset_request.php">
+                            <i class='bx bx-reset icon'></i>
+                            <span class="text nav-text">BloodBank Pass Recovery</span>
                         </a>
                     </li>
 
@@ -97,19 +99,13 @@ $get_data = mysqli_query($link, $sql);
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="delete_user_data_confirmation.php">
-                        <i class='bx bxs-user-x icon'></i>
-                        <span class="text nav-text">DELETE PROFILE</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="reset-password.php">
+                    <a href="reset-password-admin.php">
                         <i class='bx bx-key icon'></i>
                         <span class="text nav-text">RESET PASSWORD</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="logout.php">
+                    <a href="admin_logout.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -135,9 +131,9 @@ $get_data = mysqli_query($link, $sql);
         <div class="text">
             <nav class="navbar">
                 <div class="navbar_content">
-                    <h1>User information Dashboard</h1>
+                    <h1>ADMIN DASHBOARD</h1>
                     <p>USERNAME : <b>
-                            <?php echo htmlspecialchars($_SESSION["username"]); ?>
+                            <?php echo htmlspecialchars($_SESSION["Name"]); ?>
                         </b></p>
                     <i class='bx bx-bell'></i>
                     <img src="assets/icons/title_icon.png" alt="" class="profile" />
@@ -145,44 +141,29 @@ $get_data = mysqli_query($link, $sql);
             </nav>
             <div class="userInfo">
                 <div class="container">
-                    <h2>See User information</h2>
+                    <h2>See ADMIN information</h2>
 
                     <div class="tableInfo">
-                    <table align="center" border="1px" style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
+                        <table align="center" border="1px"
+                            style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
                             <tr>
-                                <th colspan="11">See
-                                    <?php echo htmlspecialchars($_SESSION["username"]); ?>'s Info
-                                    </h>
+                                <th colspan="11">See Admin Info</h>
                                 </th>
                             </tr>
                             <t>
                                 <th> ID </th>
                                 <th> Name</th>
-                                <th> Blood Type</th>
-                                <th> Age</th>
-                                <th> Location</th>
                                 <th> Phone</th>
                                 <th> E-mail</th>
-                                <th> Last Donation</th>
-                                <th> UserType</th>
-                                <th> Preferred Date</th>
-                                <th> Health Problems</th>
                             </t>
                             <?php
                             while ($row = mysqli_fetch_assoc($get_data)) {
                                 echo '<tr>
-                                        <td> ' . $row['User_ID'] . '</td>
-                                        <td> ' . $row['Name'] . '</td>
-                                        <td> ' . $row['Blood_Type'] . '</td>
-                                        <td> ' . $row['Age'] . '</td>
-                                        <td> ' . $row['Location'] . '</td>
-                                        <td> ' . $row['Phone'] . '</td>
-                                        <td> ' . $row['E_mail'] . '</td>
-                                        <td> ' . $row['Last_Donation'] . '</td>
-                                        <td> ' . $row['UserType'] . '</td>
-                                        <td> ' . $row['Preferred_Date'] . '</td>
-                                        <td> ' . $row['Health_Problem'] . '</td>
-                                        </tr>';
+                    <td> ' . $row['Admin_ID'] . '</td>
+                    <td> ' . $row['Name'] . '</td>
+                    <td> ' . $row['Contact_info'] . '</td>
+                    <td> ' . $row['E_Mail'] . '</td>
+                    </tr>';
                             }
                             ?>
                         </table>
@@ -190,11 +171,13 @@ $get_data = mysqli_query($link, $sql);
 
                 </div>
             </div>
-
         </div>
+
     </section>
 
     <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+
+

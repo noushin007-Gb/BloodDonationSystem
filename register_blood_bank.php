@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $Name_err = "Please enter a Name.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT User_ID FROM registered_blood_bank_info WHERE Name = ?";
+        $sql = "SELECT User_ID FROM blood_bank_info WHERE Name = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     && empty($Storage_capacity_err)&& empty($facilities_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO registered_blood_bank_info (Name, Bpassword,Security_code,Contact,Email
+        $sql = "INSERT INTO blood_bank_info (Name, Bpassword,Security_code,Contact,Email
         ,Location,Storage_capacity,facilities,Verification) VALUES ( ?,?,?, 
         ?, ?,?,?, ?, ?)";
          
@@ -195,7 +195,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" placeholder="Storage Capacity" id="storageCapacity" name="storageCapacity">
             </div>
             <div class="input-field">
-              <input type="text" placeholder="Security Code" id="securityCode" name="securityCode">
+              <input type="text" placeholder="Security Code (10)" id="securityCode" name="securityCode">
             </div>
           </div>
           <div class="column">

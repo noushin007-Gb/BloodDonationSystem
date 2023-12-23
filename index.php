@@ -126,7 +126,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="password" placeholder="Password" name="password" id="password">
           </div>
           <span class="help-block"><?php echo $password_err; ?></span>
-          <p>Reset password <a href="#" id="userResetPasswordLink">Click Here!</a></p>
+          <p>Reset password <a href="pass_req_wit_uid.php" id="userResetPasswordLink">Click Here!</a></p>
           <div class="btn-field">
             <button type="button" class="btn" id="userRegisterBtn">Register</button>
             <button type="submit" class="btn" id="userLoginButton">Login</button>
