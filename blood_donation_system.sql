@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2023 at 06:01 PM
+-- Generation Time: Dec 26, 2023 at 09:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,8 +66,9 @@ CREATE TABLE `blood_bank_info` (
 --
 
 INSERT INTO `blood_bank_info` (`user_id`, `Bpassword`, `Name`, `Security_code`, `Contact`, `Email`, `Location`, `Storage_capacity`, `facilities`, `Verification`) VALUES
-(1100100, '$2y$10$1zOfN488sIw.gsVZcCKA8OwsJaCSKAskZNxVQjudWYaV/izbeMwQC', 'BLOODBANK4', '1234567890', '01930679928', 'rashed298@yahoo.com', 'Khulna', 45, 'We have facilities', 'Verified'),
-(1100134, '$2y$10$VTDaxD3YQ8lNiwZEwkw4xuvh3IOpMl4m6APq4woNNkSXfTzLQ9LOm', 'BLOODBANK1', '1234567890', '01912225776', 'BLOODBANK1@gmail.com', 'Bangladesh', 56, 'So much', 'Verified');
+(1100100, '$2y$10$1zOfN488sIw.gsVZcCKA8OwsJaCSKAskZNxVQjudWYaV/izbeMwQC', 'BLOODBANK4', '1234567890', '01930679928', 'rashed298@yahoo.com', 'Khulna', 45, 'We have facilities', 'Not Verified'),
+(1100134, '$2y$10$VTDaxD3YQ8lNiwZEwkw4xuvh3IOpMl4m6APq4woNNkSXfTzLQ9LOm', 'BLOODBANK1', '1234567890', '01912225776', 'BLOODBANK1@gmail.com', 'Bangladesh', 56, 'So much', 'Not Verified'),
+(1100135, '$2y$10$kxcBbCqir5JdHMYU6xBvjOdeb6hXwhPX4uPx2H2NPdCsylzYFdFoe', 'Bloodbank1', '1234567890', '01712808496', 'bloodbank1@gmail.com', 'Loharpul', 500, 'etc', 'Verified');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ CREATE TABLE `blood_request_user` (
 --
 
 INSERT INTO `blood_request_user` (`Blood_Type`, `User_ID`, `Name`, `Location`, `Phone`, `Preferred_Date`, `Time`, `Age`) VALUES
-('AB+', 2200100, 'noushin', 'Dhaka Bangladesh', '01536124142', '2023-11-29', '01:01:00', 23);
+('B+', 2200100, 'noushin', 'Dhaka Bangladesh', '01536124142', '2023-11-27', '22:36:00', 23);
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,7 @@ CREATE TABLE `registered_user_info` (
 --
 
 INSERT INTO `registered_user_info` (`User_ID`, `Name`, `Username`, `Password`, `Age`, `Phone`, `E_mail`, `Location`, `Last_Donation`, `UserType`, `Preferred_Date`, `Blood_Type`, `Health_Problem`) VALUES
-(2200100, 'noushin', 'noushin007', '$2y$10$mtx1LegW3leZVj1w4jTTFuc91vUqE3d3bjmoHgEF5o397dxMDM/3G', 23, '01536124142', 'noushin007@gmail.com', 'Dhaka Bangladesh', 365, 'DONOR', '2023-01-07', 'O+', 'no health problem'),
+(2200100, 'noushin', 'noushin007', '$2y$10$STfQHBm4qzeAJbSD7bJQt.c.UXFnTGXNgsAvJ6Y.V7g4VmKTQ1FJS', 23, '01536124142', 'noushin007@gmail.com', 'Dhaka Bangladesh', 365, 'DONOR', '2023-01-07', 'O+', 'no health problem'),
 (2200103, 'noushin', 'noushin0071', '$2y$10$Waj59HHmxq30P/NQ4nvGguljlQmyQu36YJkWN80ch533tpBxQHfuO', 23, '01536124142', 'noushin007@gmail.com', 'Dhaka Bangladesh', 365, 'DONOR', '2023-01-07', 'O+', 'no health problem'),
 (2200104, 'noushin', 'noushin02', '$2y$10$Waj59HHmxq30P/NQ4nvGguljlQmyQu36YJkWN80ch533tpBxQHfuO', 23, '01536124142', 'noushin007@gmail.com', 'Dhaka Bangladesh', 365, 'DONOR', '2023-01-07', 'O+', 'no health problem'),
 (2200105, 'noushin', 'noushin4', '$2y$10$Waj59HHmxq30P/NQ4nvGguljlQmyQu36YJkWN80ch533tpBxQHfuO', 23, '01536124142', 'noushin007@gmail.com', 'Dhaka Bangladesh', 365, 'DONOR', '2023-01-07', 'O+', 'no health problem');
@@ -299,7 +300,7 @@ ALTER TABLE `admin_own_info`
 -- AUTO_INCREMENT for table `blood_bank_info`
 --
 ALTER TABLE `blood_bank_info`
-  MODIFY `user_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100135;
+  MODIFY `user_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100136;
 
 --
 -- AUTO_INCREMENT for table `registered_user_info`
