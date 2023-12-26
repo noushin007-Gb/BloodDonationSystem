@@ -2,10 +2,13 @@
 // Initialize the session
 session_start();
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: welcome.php");
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: index.php");
     exit;
 }
+require "connection.php";
+$sql = "SELECT * FROM blood_bank_info";
+$get_data = mysqli_query($link, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +39,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </a>
 
                 <div class="text logo-text">
+                    <!-- <span class="name">WELCOME</span> -->
                     <span class="name">WELCOME</span>
-                    <span class="profession">ID : <?php echo htmlspecialchars($_SESSION["User_ID"]); ?></span>
+                    <span class="profession">ID :
+                    <?php echo htmlspecialchars($_SESSION["User_ID"]); ?></span>
+                    </span>
                 </div>
             </div>
             <i class='bx bxs-droplet iconDrop'></i>
@@ -131,43 +137,54 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="text">
             <nav class="navbar">
                 <div class="navbar_content">
-                    <h1>Dashboard</h1>
-                    <p>USERNAME : <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></p>
+                    <h1>DASHBOARD</h1>
+                    <p>USERNAME : <b>
+                    <?php echo htmlspecialchars($_SESSION["username"]); ?>
+                        </b></p>
                     <i class='bx bx-bell'></i>
                     <img src="assets/icons/title_icon.png" alt="" class="profile" />
                 </div>
             </nav>
-            <div class="donorSection">
-                <h2>Find Blood Group Related Donors instead</h2>
-                <p>Be a donor and save lives.</p>
-                <div class="middle-content">
-                    <a href="AB+.php" target="_blank">
-                        <span class="">AB+(AB POSITIVE)</span>
-                    </a>
-                    <a href="AB-.php" target="_blank">
-                        <span class="">AB-(AB NEGATIVE)</span>
-                    </a>
-                    <a href="A+.php" target="_blank">
-                        <span class="">A+(A POSITIVE)</span>
-                    </a>
-                    <a href="A-.php" target="_blank">
-                        <span class="">A-(A NEGATIVE)</span>
-                    </a>
-                    <a href="B+.php" target="_blank">
-                        <span class="">B+(B POSITIVE)</span>
-                    </a>
-                    <a href="B-.php" target="_blank">
-                        <span class="">B-(B NEGATIVE)</span>
-                    </a>
-                    <a href="O+.php" target="_blank">
-                        <span class="">O+(O POSITIVE)</span>
-                    </a>
-                    <a href="O-.php" target="_blank">
-                        <span class="">O-(O NEGATIVE)</span>
-                    </a>
-                    <a href="bloodbank_info_from_USER_home.php" target="_blank">
-                        <span class="">BLOODBANK INFO</span>
-                    </a>
+            <div class="userInfo">
+                <div class="container">
+                    <h2>PUBLIC ACCOUNT INFORMATION</h2>
+
+                    <div class="tableInfo">
+                        <table align="center" border="1px"
+                            style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
+                            <tr>
+                                <th colspan="11">PUBLIC ACCOUNT INFORMATION</h>
+                                </th>
+                            </tr>
+                            <t>
+                                <th> ID </th>
+                                <th> Name</th>
+                                <th> Security code</th>
+                                <th> Contact</th>
+                                <th> E-mail</th>
+                                <th> Location</th>
+                                <th> Storage_capacity</th>
+                                <th> Facilities</th>
+                                <th> VERIFIED?</th>
+                            </t>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($get_data)) {
+                                echo '<tr>
+                    <td> ' . $row['user_id'] . '</td>
+                    <td> ' . $row['Name'] . '</td>
+                    <td> ' . $row['Security_code'] . '</td>
+                    <td> ' . $row['Contact'] . '</td>
+                    <td> ' . $row['Email'] . '</td>
+                    <td> ' . $row['Location'] . '</td>
+                    <td> ' . $row['Storage_capacity'] . '</td>
+                    <td> ' . $row['facilities'] . '</td>
+                    <td> ' . $row['Verification'] . '</td>
+                    </tr>';
+                            }
+                            ?>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
