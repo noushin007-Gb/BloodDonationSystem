@@ -59,14 +59,14 @@ body.dark {
     box-shadow: 0 0 2px var(--grey-color-light);
 }
 
-.logo_item {
+/* .logo_item {
     display: flex;
     align-items: center;
     column-gap: 10px;
     font-size: 22px;
     font-weight: 500;
     color: var(--blue-color);
-}
+} */
 
 .navbar img {
     width: 35px;
