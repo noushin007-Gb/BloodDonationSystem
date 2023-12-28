@@ -140,7 +140,7 @@ $data1 = mysqli_fetch_assoc($res);
                     <p>USERNAME : <b>
                     <?php echo htmlspecialchars($_SESSION["Name"]); ?>
                         </b></p>
-                    <i class='bx bx-bell'></i>
+                    
                     <img src="assets/icons/title_icon.png" alt="" class="profile" />
                 </div>
             </nav>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2023 at 09:09 AM
+-- Generation Time: Dec 28, 2023 at 06:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -67,7 +67,7 @@ CREATE TABLE `blood_bank_info` (
 
 INSERT INTO `blood_bank_info` (`user_id`, `Bpassword`, `Name`, `Security_code`, `Contact`, `Email`, `Location`, `Storage_capacity`, `facilities`, `Verification`) VALUES
 (1100100, '$2y$10$1zOfN488sIw.gsVZcCKA8OwsJaCSKAskZNxVQjudWYaV/izbeMwQC', 'BLOODBANK4', '1234567890', '01930679928', 'rashed298@yahoo.com', 'Khulna', 45, 'We have facilities', 'Not Verified'),
-(1100134, '$2y$10$VTDaxD3YQ8lNiwZEwkw4xuvh3IOpMl4m6APq4woNNkSXfTzLQ9LOm', 'BLOODBANK1', '1234567890', '01912225776', 'BLOODBANK1@gmail.com', 'Bangladesh', 56, 'So much', 'Not Verified'),
+(1100134, '$2y$10$VTDaxD3YQ8lNiwZEwkw4xuvh3IOpMl4m6APq4woNNkSXfTzLQ9LOm', 'BLOODBANK1', '1234567890', '01912225776', 'BLOODBANK1@gmail.com', 'Bangladesh', 56, 'So much', 'Verified'),
 (1100135, '$2y$10$kxcBbCqir5JdHMYU6xBvjOdeb6hXwhPX4uPx2H2NPdCsylzYFdFoe', 'Bloodbank1', '1234567890', '01712808496', 'bloodbank1@gmail.com', 'Loharpul', 500, 'etc', 'Verified');
 
 -- --------------------------------------------------------
@@ -110,13 +110,6 @@ CREATE TABLE `blood_request_user` (
   `Time` time NOT NULL,
   `Age` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `blood_request_user`
---
-
-INSERT INTO `blood_request_user` (`Blood_Type`, `User_ID`, `Name`, `Location`, `Phone`, `Preferred_Date`, `Time`, `Age`) VALUES
-('B+', 2200100, 'noushin', 'Dhaka Bangladesh', '01536124142', '2023-11-27', '22:36:00', 23);
 
 -- --------------------------------------------------------
 
@@ -176,6 +169,9 @@ CREATE TABLE `pass_req_wit_uid` (
 --
 
 INSERT INTO `pass_req_wit_uid` (`User_ID`) VALUES
+(2200100),
+(2200100),
+(2200100),
 (2200100);
 
 -- --------------------------------------------------------
@@ -231,6 +227,9 @@ CREATE TABLE `user_pass_reset_request` (
 --
 
 INSERT INTO `user_pass_reset_request` (`User_ID`, `Username`, `Name`, `E_mail`, `Contact`, `UserType`, `new_password`) VALUES
+(2200100, 'noushin007', 'noushin', 'noushin007@gmail.com', '01536124142', 'DONOR', ''),
+(2200100, 'noushin007', 'noushin', 'noushin007@gmail.com', '01536124142', 'DONOR', ''),
+(2200100, 'noushin007', 'noushin', 'noushin007@gmail.com', '01536124142', 'DONOR', ''),
 (2200100, 'noushin007', 'noushin', 'noushin007@gmail.com', '01536124142', 'DONOR', '');
 
 --

@@ -139,7 +139,7 @@ $get_data = mysqli_query($link, $sql);
                     <p>USERNAME : <b>
                             <?php echo htmlspecialchars($_SESSION["username"]); ?>
                         </b></p>
-                    <i class='bx bx-bell'></i>
+                   
                     <img src="assets/icons/title_icon.png" alt="" class="profile" />
                 </div>
             </nav>
