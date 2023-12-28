@@ -142,13 +142,13 @@ $get_data = mysqli_query($link, $sql);
             </nav>
             <div class="userInfo">
                 <div class="container">
-                    <h2>PUBLIC ACCOUNT INFORMATION</h2>
+                    <h2>BLOODBANK ACCOUNT INFORMATION</h2>
 
                     <div class="tableInfo">
                         <table align="center" border="1px"
                             style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
                             <tr>
-                                <th colspan="11">PUBLIC ACCOUNT INFORMATION</h>
+                                <th colspan="11">BLOODBANK ACCOUNT INFORMATION</h>
                                 </th>
                             </tr>
                             <t>
@@ -176,7 +176,7 @@ $get_data = mysqli_query($link, $sql);
                     <td> ' . $row['Storage_capacity'] . '</td>
                     <td> ' . $row['facilities'] . '</td>
                     <td> ' . $row['Verification'] . '</td>
-                    <td> FOR ID <a href="verification_blood_bank.php?id=' . urlencode($row['user_id']) . '" target="_blank">' . $row['user_id'] . '</a> </td>
+                    <td> FOR ID <a href="verification_blood_bank.php?id=' . urlencode($row['user_id']) . '">' . $row['user_id'] . '</a> </td>
                     </tr>';
                             }
                             ?>

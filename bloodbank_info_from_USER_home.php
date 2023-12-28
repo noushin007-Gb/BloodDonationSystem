@@ -147,19 +147,18 @@ $get_data = mysqli_query($link, $sql);
             </nav>
             <div class="userInfo">
                 <div class="container">
-                    <h2>PUBLIC ACCOUNT INFORMATION</h2>
+                    <h2>BLOODBANK ACCOUNT INFORMATION</h2>
 
                     <div class="tableInfo">
                         <table align="center" border="1px"
                             style="width:1000px; line-height:40px; border-collapse: collapse; border: 2px solid black; margin-top: 10px;">
                             <tr>
-                                <th colspan="11">PUBLIC ACCOUNT INFORMATION</h>
+                                <th colspan="11">BLOODBANK ACCOUNT INFORMATION</h>
                                 </th>
                             </tr>
                             <t>
                                 <th> ID </th>
                                 <th> Name</th>
-                                <th> Security code</th>
                                 <th> Contact</th>
                                 <th> E-mail</th>
                                 <th> Location</th>
@@ -172,7 +171,6 @@ $get_data = mysqli_query($link, $sql);
                                 echo '<tr>
                     <td> ' . $row['user_id'] . '</td>
                     <td> ' . $row['Name'] . '</td>
-                    <td> ' . $row['Security_code'] . '</td>
                     <td> ' . $row['Contact'] . '</td>
                     <td> ' . $row['Email'] . '</td>
                     <td> ' . $row['Location'] . '</td>

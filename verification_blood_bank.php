@@ -43,12 +43,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $param_Verification = $Verification;
         if($stmt -> execute()){
             // updated successfully. Destroy the session, and redirect to login page
-           header( "refresh:2;url=welcome_admin.php" ); 
+           header( "refresh:2;url=bloodbank_info_verification_from_admin.php" ); 
            echo '<h1><center><b>"VERIFICATION PROCESS WAS SUCESSFULL"</b>
            <br>
            redirecting you to home page in ...2...1 Seconds!!</center></h1>';
        }else{
-             header( "refresh:2;welcome_admin.php" ); 
+             header( "refresh:2;bloodbank_info_verification_from_admin.php" ); 
              echo "";
        }
     }
